@@ -1,3 +1,7 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+.grad-bg {
+  @apply bg-gradient-to-r from-pink-500 to-red-500;
+}
