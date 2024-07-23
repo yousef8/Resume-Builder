@@ -9,9 +9,9 @@ const PersonalInfoPreview: React.FC<{ info: PersonalInfoData }> = ({
       <h1 className="text-lg font-bold capitalize">
         {info?.name || "Your Name"}
       </h1>
-      <h2 className="text-gray-500">{info?.jobTitle || "Job Title"}</h2>
+      <h2 className="text-gray-500 mb-4">{info?.jobTitle || "Job Title"}</h2>
 
-      <div className="flex mt-4">
+      <div className="flex mb-2">
         <svg
           xmlns="http://www.w3.org/2000/svg"
           fill="none"
@@ -29,7 +29,7 @@ const PersonalInfoPreview: React.FC<{ info: PersonalInfoData }> = ({
         <p className="ml-2">{info?.email || "Email"}</p>
       </div>
 
-      <div className="flex">
+      <div className="flex mb-2">
         <svg
           xmlns="http://www.w3.org/2000/svg"
           fill="none"
