@@ -5,11 +5,11 @@ import PersonalInfoForm from "./PersonalInfoForm";
 
 function PersonalInfo() {
   // TODO: Load from Local Storage in future;
-  const [data, setData] = useState<PersonalInfoData>({});
+  const [info, setInfo] = useState<PersonalInfoData>({});
   const [edit, setEdit] = useState<boolean>(false);
 
   const updateInfo = (info: PersonalInfoData) => {
-    setData(info);
+    setInfo(info);
     setEdit(false);
   };
 
@@ -38,9 +38,9 @@ function PersonalInfo() {
         </div>
       )}
       {edit ? (
-        <PersonalInfoForm save={updateInfo} />
+        <PersonalInfoForm curInfo={info} save={updateInfo} />
       ) : (
-        <PersonalInfoPreview info={data} />
+        <PersonalInfoPreview info={info} />
       )}
     </div>
   );
