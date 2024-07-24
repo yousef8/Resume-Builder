@@ -1,11 +1,15 @@
-import { useState } from "react";
+import React, { useState } from "react";
 import PersonalInfoData from "../types/PersonalInfoData";
 import PersonalInfoPreview from "./PersonalInfoPreview";
 import PersonalInfoForm from "./PersonalInfoForm";
 
-function PersonalInfo() {
+interface InfoProps {
+  info: PersonalInfoData;
+  setInfo: (info: PersonalInfoData) => void;
+}
+
+const PersonalInfo: React.FC<InfoProps> = ({ info, setInfo }) => {
   // TODO: Load from Local Storage in future;
-  const [info, setInfo] = useState<PersonalInfoData>({});
   const [edit, setEdit] = useState<boolean>(false);
 
   const updateInfo = (info: PersonalInfoData) => {
@@ -44,6 +48,6 @@ function PersonalInfo() {
       )}
     </div>
   );
-}
+};
 
 export default PersonalInfo;
