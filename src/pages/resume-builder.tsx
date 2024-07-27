@@ -9,7 +9,11 @@ function ResumeBuilder() {
   return (
     <div className="md:flex md:flex-wrap pt-4">
       <div className="grow mr-4">
-        <PersonalInfo info={personalInfo} setInfo={setPersonalInfo} />
+        <PersonalInfo
+          info={personalInfo}
+          setInfo={setPersonalInfo}
+          className="bg-white p-4 rounded-3xl shadow-md relative mb-4"
+        />
       </div>
       <div className="grow">
         <ResumePreview info={personalInfo} />

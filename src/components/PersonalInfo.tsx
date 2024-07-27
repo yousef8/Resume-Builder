@@ -6,9 +6,10 @@ import PersonalInfoForm from "./PersonalInfoForm";
 interface InfoProps {
   info: PersonalInfoData;
   setInfo: (info: PersonalInfoData) => void;
+  className?: string;
 }
 
-const PersonalInfo: React.FC<InfoProps> = ({ info, setInfo }) => {
+const PersonalInfo: React.FC<InfoProps> = ({ info, setInfo, className }) => {
   // TODO: Load from Local Storage in future;
   const [edit, setEdit] = useState<boolean>(false);
 
@@ -18,7 +19,7 @@ const PersonalInfo: React.FC<InfoProps> = ({ info, setInfo }) => {
   };
 
   return (
-    <div className="bg-white p-4 rounded-3xl shadow-md relative">
+    <div className={`${className}`}>
       {!edit && (
         <div
           onClick={() => setEdit(true)}
