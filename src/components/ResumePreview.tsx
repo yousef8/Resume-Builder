@@ -1,14 +1,20 @@
 import { EnvelopeIcon, MapPinIcon, PhoneIcon } from "@heroicons/react/24/solid";
 import PersonalInfoData from "../types/PersonalInfoData";
 import IEducation from "../types/Education";
-import { AcademicCapIcon } from "@heroicons/react/24/outline";
+import { AcademicCapIcon, BriefcaseIcon } from "@heroicons/react/24/outline";
+import Experience from "../types/Experience";
 
 interface PreviewProps {
   info: PersonalInfoData;
   educations: IEducation[];
+  experiences: Experience[];
 }
 
-const ResumePreview: React.FC<PreviewProps> = ({ info, educations }) => {
+const ResumePreview: React.FC<PreviewProps> = ({
+  info,
+  educations,
+  experiences,
+}) => {
   return (
     <div className="font-serif shadow-md bg-white pb-10">
       <div className="px-10 bg-[#F3F2EF] py-10">
@@ -63,6 +69,30 @@ const ResumePreview: React.FC<PreviewProps> = ({ info, educations }) => {
               {edu.startDate?.toLocaleString("default", { month: "short" })} -{" "}
               {edu.endDate?.getFullYear()}{" "}
               {edu.endDate?.toLocaleString("default", { month: "short" })}
+            </div>
+          </div>
+        ))}
+      </div>
+
+      <div className="px-10 mt-4">
+        <div className="bg-[#F3F2EF] py-1 flex justify-center items-center rounded-md">
+          <BriefcaseIcon className="size-5 mr-2" />
+          Experiences
+        </div>
+        {experiences.map((exp) => (
+          <div
+            className="flex justify-between justify-items-start mt-4"
+            key={exp.id}
+          >
+            <div>
+              <h1>{exp.title}</h1>
+              <h2>{exp.company?.name}</h2>
+            </div>
+            <div>
+              {exp.startDate?.getFullYear()}{" "}
+              {exp.startDate?.toLocaleString("default", { month: "short" })} -{" "}
+              {exp.endDate?.getFullYear()}{" "}
+              {exp.endDate?.toLocaleString("default", { month: "short" })}
             </div>
           </div>
         ))}
