@@ -4,13 +4,18 @@ import PersonalInfoData from "../types/PersonalInfoData";
 import ResumePreview from "../components/ResumePreview";
 import EducationC2 from "../components/education/EducationC2";
 import IEducation from "../types/Education";
+import { v4 as uuidv4 } from "uuid";
 
 function ResumeBuilder() {
   const [personalInfo, setPersonalInfo] = useState<PersonalInfoData>({});
   const [educations, setEducations] = useState<IEducation[]>([
-    { school: "tanta university", degree: "Baschelor" },
-    { school: "iti", degree: "Open Source Applications Development diploma" },
-    { school: "MIT", degree: "Baschelor in electorincs" },
+    { id: uuidv4(), school: "tanta university", degree: "Baschelor" },
+    {
+      id: uuidv4(),
+      school: "iti",
+      degree: "Open Source Applications Development diploma",
+    },
+    { id: uuidv4(), school: "MIT", degree: "Baschelor in electorincs" },
   ]);
 
   return (
@@ -28,7 +33,7 @@ function ResumeBuilder() {
         />
       </div>
       <div className="grow">
-        <ResumePreview info={personalInfo} />
+        <ResumePreview info={personalInfo} educations={educations} />
       </div>
     </div>
   );
